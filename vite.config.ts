@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "icon-192.png", "icon-512.png"],
+      includeAssets: ["favicon.ico"],
       manifest: {
         name: "Wallet - Send Money Instantly",
         short_name: "Wallet",
@@ -18,20 +18,6 @@ export default defineConfig({
         start_url: "/",
         orientation: "portrait",
         categories: ["finance", "payments", "wallet"],
-        icons: [
-          {
-            src: "icon-192.png",
-            sizes: "192x192",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "icon-512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-        ],
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
