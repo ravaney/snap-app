@@ -63,6 +63,8 @@ export const Login = () => {
             </div>
             <input
               autoFocus={!!username}
+              readOnly
+              inputMode="none"
               onFocus={() => setShowPinpad(true)}
               className={styles.input}
               placeholder="Pin"
