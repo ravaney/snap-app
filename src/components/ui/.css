@@ -1,0 +1,33 @@
+.card {
+  border-radius: 16px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #eee;
+}
+
+.input {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 0 12px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.btn {
+  height: 48px;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.primary {
+  background: #111827;
+  color: white;
+}
+
+.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}

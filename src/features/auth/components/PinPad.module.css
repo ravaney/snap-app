@@ -1,0 +1,75 @@
+.grid {
+  width: min(100%, 280px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 44px;
+  row-gap: 24px;
+  justify-items: center;
+  margin: 0 auto;
+  padding: 8px 0 2px;
+}
+
+.digitBtn,
+.deleteBtn {
+  width: 42px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #15213a;
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.digitBtn {
+  font-weight: 500;
+}
+
+.digitBtn:active {
+  background: rgba(13, 71, 161, 0.1);
+  transform: scale(0.94);
+}
+
+.deleteBtn {
+  width: 22px;
+  height: 22px;
+  align-self: center;
+  border-radius: 6px;
+  background: #22304a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus-visible {
+  background: #0d47a1;
+}
+
+.deleteBtn:active {
+  transform: scale(0.92);
+}
+
+.digitBtn:focus-visible,
+.deleteBtn:focus-visible {
+  outline: 3px solid rgba(13, 71, 161, 0.18);
+  outline-offset: 3px;
+}
+
+@media (max-width: 380px) {
+  .grid {
+    width: min(100%, 250px);
+    column-gap: 34px;
+    row-gap: 22px;
+  }
+}
