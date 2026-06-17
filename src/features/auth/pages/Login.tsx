@@ -3,10 +3,13 @@ import snapLogo from "../../../assets/snap.jpg";
 import { useNavigate } from "react-router-dom";
 import PinPad from "../components/PinPad";
 import styles from "./LoginPage.module.css";
+import { usePWAInstall } from "../../../hooks/usePWAInstall";
 
 const PIN_LENGTH = 4;
 
 export const Login = () => {
+  const { canInstall, installApp } = usePWAInstall();
+
   const [pin, setPin] = useState("");
   const nav = useNavigate();
   const [showPinpad, setShowPinpad] = useState(false);
@@ -73,7 +76,18 @@ export const Login = () => {
             </div>
           )}
         </div>
-
+        <div className={styles.headerActions}>
+          {canInstall && (
+            <button
+              className={styles.installBtn}
+              onClick={installApp}
+              title="Install App"
+            >
+              📲
+            </button>
+          )}
+          <button className={styles.notificationBtn}>🔔</button>
+        </div>
         <a className={styles.signUp}>
           Don't have an account? <span>Sign Up</span>
         </a>
