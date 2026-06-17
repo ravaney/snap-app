@@ -83,10 +83,9 @@ export const Login = () => {
               onClick={installApp}
               title="Install App"
             >
-              📲
+              📲install
             </button>
           )}
-          <button className={styles.notificationBtn}>🔔</button>
         </div>
         <a className={styles.signUp}>
           Don't have an account? <span>Sign Up</span>
