@@ -7,7 +7,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "192x192.svg", "512x512.svg"],
+
+      // ✅ Include ALL your favicon files
+      includeAssets: [
+        "favicon.ico",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "apple-touch-icon.png",
+      ],
+
       manifest: {
         name: "Wallet - Send Money Instantly",
         short_name: "Wallet",
@@ -19,42 +27,41 @@ export default defineConfig({
         orientation: "portrait",
         categories: ["finance", "payments", "wallet"],
 
-        // ✅ SCREENSHOTS - Use your existing SVG files in the screenshots folder
+        // ✅ SCREENSHOTS
         screenshots: [
-          // Mobile (narrow) - REQUIRED
           {
-            src: "/screenshots/390x844.svg",
+            src: "/screenshots/390x844.png",
             sizes: "390x844",
-            type: "image/svg+xml", // ✅ Correct MIME type
+            type: "image/png",
             form_factor: "narrow",
             label: "Wallet Home Screen",
           },
-          // Desktop (wide) - REQUIRED for desktop install
           {
             src: "/screenshots/1280x720.svg",
             sizes: "1280x720",
-            type: "image/svg+xml", // ✅ Correct MIME type
+            type: "image/svg+xml",
             form_factor: "wide",
             label: "Wallet Home Screen (Desktop)",
           },
         ],
 
-        // ✅ ICONS - Use your actual SVG files
+        // ✅ ICONS - Use your android-chrome PNG files
         icons: [
           {
-            src: "192x192.svg", // ✅ Matches your file
+            src: "android-chrome-192x192.png",
             sizes: "192x192",
-            type: "image/svg+xml", // ✅ Correct MIME type
+            type: "image/png",
             purpose: "any maskable",
           },
           {
-            src: "512x512.svg", // ✅ Matches your file
+            src: "android-chrome-512x512.png",
             sizes: "512x512",
-            type: "image/svg+xml", // ✅ Correct MIME type
+            type: "image/png",
             purpose: "any maskable",
           },
         ],
       },
+
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
         runtimeCaching: [
