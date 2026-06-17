@@ -18,6 +18,15 @@ export default defineConfig({
         start_url: "/",
         orientation: "portrait",
         categories: ["finance", "payments", "wallet"],
+        screenshots: [
+          {
+            src: "/screenshots/Screenshot 2026-06-17 014936.png",
+            sizes: "390x844",
+            type: "image/png",
+            form_factor: "narrow",
+            label: "Wallet Home Screen",
+          },
+        ],
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
