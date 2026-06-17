@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "144x144.svg"],
+      includeAssets: ["favicon.svg", "192x192.svg", "512x512.svg"],
       manifest: {
         name: "Wallet - Send Money Instantly",
         short_name: "Wallet",
@@ -18,20 +18,39 @@ export default defineConfig({
         start_url: "/",
         orientation: "portrait",
         categories: ["finance", "payments", "wallet"],
+
+        // ✅ SCREENSHOTS - Use your existing SVG files in the screenshots folder
         screenshots: [
+          // Mobile (narrow) - REQUIRED
           {
             src: "/screenshots/390x844.svg",
             sizes: "390x844",
-            type: "image/svg",
+            type: "image/svg+xml", // ✅ Correct MIME type
             form_factor: "narrow",
             label: "Wallet Home Screen",
           },
+          // Desktop (wide) - REQUIRED for desktop install
+          {
+            src: "/screenshots/1280x720.svg",
+            sizes: "1280x720",
+            type: "image/svg+xml", // ✅ Correct MIME type
+            form_factor: "wide",
+            label: "Wallet Home Screen (Desktop)",
+          },
         ],
+
+        // ✅ ICONS - Use your actual SVG files
         icons: [
           {
-            src: "/144x144.svg",
+            src: "192x192.svg", // ✅ Matches your file
             sizes: "192x192",
-            type: "image/svg",
+            type: "image/svg+xml", // ✅ Correct MIME type
+            purpose: "any maskable",
+          },
+          {
+            src: "512x512.svg", // ✅ Matches your file
+            sizes: "512x512",
+            type: "image/svg+xml", // ✅ Correct MIME type
             purpose: "any maskable",
           },
         ],
@@ -46,7 +65,7 @@ export default defineConfig({
               cacheName: "google-fonts-cache",
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
