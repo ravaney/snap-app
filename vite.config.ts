@@ -17,9 +17,9 @@ export default defineConfig({
       ],
 
       manifest: {
-        name: "Wallet - Send Money Instantly",
-        short_name: "Wallet",
-        description: "Send and receive money instantly with your wallet app",
+        name: "Snap - Send Money Instantly",
+        short_name: "Snap",
+        description: "Send and receive money instantly with your Snap app",
         theme_color: "#0f172a",
         background_color: "#f8fafc",
         display: "standalone",
@@ -34,14 +34,14 @@ export default defineConfig({
             sizes: "390x844",
             type: "image/png",
             form_factor: "narrow",
-            label: "Wallet Home Screen",
+            label: "Snap Home Screen",
           },
           {
             src: "/screenshots/1280x720.svg",
             sizes: "1280x720",
             type: "image/svg+xml",
             form_factor: "wide",
-            label: "Wallet Home Screen (Desktop)",
+            label: "Snap Home Screen (Desktop)",
           },
         ],
 
