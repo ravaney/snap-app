@@ -13,7 +13,8 @@ export const Login = () => {
   const [pin, setPin] = useState("");
   const nav = useNavigate();
   const [showPinpad, setShowPinpad] = useState(false);
-  const username = null;
+  const username = "lamslew";
+
   const handleDigit = (digit: string) => {
     if (pin.length < PIN_LENGTH) {
       setPin((prev) => (prev + digit).slice(0, PIN_LENGTH));
