@@ -1,41 +1,39 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import SvgIcon from "@mui/material/SvgIcon";
 import Typography from "@mui/material/Typography";
-import { GiReceiveMoney } from "react-icons/gi";
-
-type ActionColor = "primary" | "secondary" | "info";
+import { FiArrowDownCircle, FiCreditCard, FiSend } from "react-icons/fi";
+import { DARK_BLUE, NEON_PINK, PINK, VIVID_BLUE } from "../../CONST";
 
 type QuickAction = {
   label: string;
-  color: ActionColor;
+  description: string;
+  color: string;
+  background: string;
   icon: React.ReactNode;
 };
 
 const actions: QuickAction[] = [
   {
     label: "Send",
-    color: "primary",
-    icon: (
-      <SvgIcon viewBox="0 0 24 24">
-        <path d="M2 12l19 7-7-7 7-7z" />
-      </SvgIcon>
-    ),
+    description: "Pay anyone",
+    color: VIVID_BLUE,
+    background: "rgba(13, 71, 161, 0.1)",
+    icon: <FiSend size={20} />,
   },
   {
     label: "Request",
-    color: "secondary",
-    icon: (
-      <SvgIcon viewBox="0 0 24 24">
-        <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm-1 5v4H7l5 5 5-5h-4V7h-2z" />
-      </SvgIcon>
-    ),
+    description: "Ask for cash",
+    color: PINK,
+    background: "rgba(194, 24, 91, 0.1)",
+    icon: <FiArrowDownCircle size={20} />,
   },
   {
     label: "Borrow",
-    color: "info",
-    icon: <GiReceiveMoney size={20} />,
+    description: "Get a loan",
+    color: NEON_PINK,
+    background: "rgba(193, 57, 160, 0.1)",
+    icon: <FiCreditCard size={20} />,
   },
 ];
 
@@ -43,40 +41,67 @@ export const QuickActions = () => {
   return (
     <Box
       sx={{
-        p: 3,
-        borderRadius: 4,
-        bgcolor: "rgba(255,255,255,0.08)",
-        border: "1px solid rgba(255,255,255,0.14)",
-        boxShadow: "0 24px 50px rgba(7, 14, 31, 0.16)",
+        p: 1.25,
+        borderRadius: 3,
+        background:
+          "linear-gradient(145deg, rgba(255,255,255,0.96) 0%, rgba(232,241,255,0.9) 100%)",
+        border: "1px solid rgba(168,196,237,0.55)",
+        boxShadow: "0 18px 36px rgba(7, 14, 31, 0.18)",
       }}
     >
-      <Typography
-        variant="subtitle2"
-        sx={{ mb: 2, color: "rgba(255,255,255,0.9)", letterSpacing: 0.6 }}
-      >
-        Quick actions
-      </Typography>
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ width: "100%", flexWrap: "wrap" }}
-      >
+      <Stack direction="row" spacing={1} sx={{ width: "100%" }}>
         {actions.map((action) => (
           <Button
             key={action.label}
-            variant="contained"
-            color={action.color}
-            startIcon={action.icon}
+            variant="text"
             sx={{
               flex: 1,
               minWidth: 0,
-              borderRadius: 3,
-              py: 1.75,
+              px: 0.75,
+              py: 1.25,
+              borderRadius: 2,
+              color: DARK_BLUE,
+              bgcolor: action.background,
+              border: "1px solid rgba(13,71,161,0.08)",
+              display: "flex",
+              flexDirection: "column",
+              gap: 0.65,
               textTransform: "none",
-              fontWeight: 700,
+              "&:hover": {
+                bgcolor: action.background,
+                boxShadow: "0 10px 18px rgba(13, 71, 161, 0.12)",
+                transform: "translateY(-1px)",
+              },
             }}
           >
-            {action.label}
+            <Box
+              sx={{
+                width: 38,
+                height: 38,
+                borderRadius: "50%",
+                display: "grid",
+                placeItems: "center",
+                color: "#ffffff",
+                bgcolor: action.color,
+                boxShadow: `0 8px 16px ${action.background}`,
+              }}
+            >
+              {action.icon}
+            </Box>
+            <Typography sx={{ fontSize: 13, fontWeight: 800, lineHeight: 1 }}>
+              {action.label}
+            </Typography>
+            <Typography
+              sx={{
+                color: "rgba(10, 61, 122, 0.62)",
+                fontSize: 10,
+                fontWeight: 700,
+                lineHeight: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {action.description}
+            </Typography>
           </Button>
         ))}
       </Stack>

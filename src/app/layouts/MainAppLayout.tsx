@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { FiHome, FiActivity, FiUser } from "react-icons/fi";
+import { VIVID_BLUE } from "../../CONST";
 
 const navItems = [
   { label: "Home", path: "/home", icon: <FiHome size={20} /> },
@@ -20,14 +21,15 @@ const navLinkStyles = ({ isActive }: { isActive: boolean }) => ({
   flexDirection: "column" as const,
   alignItems: "center",
   justifyContent: "center",
-  gap: 4,
-  padding: "10px 6px",
-  color: isActive ? "#ffffff" : "rgba(255,255,255,0.7)",
-  background: isActive ? "rgba(255,255,255,0.08)" : "transparent",
-  borderRadius: 12,
+  gap: 2,
+  padding: "6px",
+  color: isActive ? VIVID_BLUE : "rgba(255,255,255,0.68)",
+  background: isActive ? "#ffffff" : "transparent",
+  borderRadius: 14,
   textDecoration: "none",
-  transition: "background 0.2s, color 0.2s",
+  transition: "background 0.18s ease, color 0.18s ease, transform 0.18s ease",
   textAlign: "center" as const,
+  WebkitTapHighlightColor: "transparent",
 });
 
 export const MainAppLayout = () => {
@@ -60,23 +62,32 @@ export const MainAppLayout = () => {
           bottom: 0,
           zIndex: 1000,
           px: 2,
-          height: `${NAVBAR_HEIGHT}px`,
+          pb: "env(safe-area-inset-bottom)",
+          height: `calc(${NAVBAR_HEIGHT}px + env(safe-area-inset-bottom))`,
           width: "100%",
           boxSizing: "border-box",
-          bgcolor: "rgba(10, 18, 37, 0.96)",
+          bgcolor: "rgba(5, 18, 40, 0.96)",
           borderTop: "1px solid rgba(255,255,255,0.12)",
           backdropFilter: "blur(12px)",
+          boxShadow: "0 -16px 36px rgba(0,0,0,0.24)",
         }}
       >
         <Stack
           direction="row"
-          spacing={1}
-          sx={{ width: "100%", height: "100%" }}
+          spacing={0.75}
+          sx={{ width: "100%", height: `${NAVBAR_HEIGHT}px` }}
         >
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} style={navLinkStyles}>
               {item.icon}
-              <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+              <Typography
+                sx={{
+                  fontSize: 11,
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  textTransform: "none",
+                }}
+              >
                 {item.label}
               </Typography>
             </NavLink>

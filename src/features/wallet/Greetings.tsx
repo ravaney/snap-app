@@ -1,8 +1,11 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 type Greetingsprops = {
   name: string;
+  snapTag: string;
 };
+
 const currentHour = new Date().getHours();
 const getGreeting = () => {
   if (currentHour >= 3 && currentHour < 12) {
@@ -17,9 +20,10 @@ const getGreeting = () => {
     return "Hello";
   }
 };
-export const Greetings = ({ name }: Greetingsprops) => {
+
+export const Greetings = ({ name, snapTag }: Greetingsprops) => {
   return (
-    <Stack sx={{ textAlign: "left", gap: 0.5, height: "10%" }}>
+    <Stack sx={{ textAlign: "left", gap: 0.5 }}>
       <Typography
         variant="subtitle2"
         sx={{
@@ -32,6 +36,16 @@ export const Greetings = ({ name }: Greetingsprops) => {
       </Typography>
       <Typography variant="h4" sx={{ fontWeight: 700, color: "#ffffff" }}>
         {name}
+      </Typography>
+      <Typography
+        sx={{
+          color: "rgba(255,255,255,0.78)",
+          fontSize: 14,
+          fontWeight: 600,
+          lineHeight: 1,
+        }}
+      >
+        {snapTag}
       </Typography>
     </Stack>
   );

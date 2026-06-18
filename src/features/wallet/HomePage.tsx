@@ -5,6 +5,7 @@ import styles from "./HomePage.module.css";
 import { BalanceCard } from "./BalanceCard";
 import { QuickActions } from "./QuickActions";
 import { RecentActivity } from "./RecentActivity";
+import snapLogo from "../../assets/snap.jpg";
 
 export const HomePage = () => {
   return (
@@ -12,7 +13,24 @@ export const HomePage = () => {
       className={styles.homepage}
       sx={{ px: { xs: 2, md: 3 }, py: { xs: 3, md: 4 }, minHeight: "100%" }}
     >
-      <Greetings name="Lamar" />
+      <Stack
+        direction="row"
+        sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
+      >
+        <Greetings name="Lamar" snapTag="@lewislam" />
+        <Box
+          component="img"
+          src={snapLogo}
+          alt="Snap"
+          sx={{
+            width: 44,
+            height: 44,
+            borderRadius: 2,
+            objectFit: "cover",
+            boxShadow: "0 12px 24px rgba(0,0,0,0.18)",
+          }}
+        />
+      </Stack>
       <Box className={styles.content}>
         <Box className={styles.cardGrid}>
           <BalanceCard />

@@ -5,6 +5,12 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import {
+  FiArrowDownCircle,
+  FiCoffee,
+  FiHome,
+  FiRepeat,
+} from "react-icons/fi";
 
 const activity = [
   { name: "Spotify", date: "Today", amount: "- $12.99", tag: "Subscription" },
@@ -15,6 +21,21 @@ const activity = [
 
 type RecentActivityProps = {
   mode?: "full" | "collapsed";
+};
+
+const categoryStyles = {
+  Subscription: {
+    icon: <FiRepeat size={16} />,
+  },
+  Food: {
+    icon: <FiCoffee size={16} />,
+  },
+  Income: {
+    icon: <FiArrowDownCircle size={16} />,
+  },
+  Bills: {
+    icon: <FiHome size={16} />,
+  },
 };
 
 export const RecentActivity = ({
@@ -36,11 +57,12 @@ export const RecentActivity = ({
   return (
     <Box
       sx={{
-        p: 1.25,
-        borderRadius: 2.5,
+        p: 1.5,
+        borderRadius: 3,
         bgcolor: "rgba(255,255,255,0.08)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        boxShadow: "0 10px 20px rgba(7, 14, 31, 0.1)",
+        border: "1px solid rgba(255,255,255,0.14)",
+        boxShadow: "0 16px 32px rgba(7, 14, 31, 0.14)",
+        backdropFilter: "blur(14px)",
       }}
     >
       <Box
@@ -74,7 +96,7 @@ export const RecentActivity = ({
               lineHeight: 1.4,
             }}
           >
-            Latest transactions in your account
+            Today and this week
           </Typography>
         </Box>
         {showButton && (
@@ -94,71 +116,109 @@ export const RecentActivity = ({
       </Box>
 
       <Stack spacing={0.75}>
-        {shownActivity.map((item, index) => (
-          <Box key={item.name + item.date}>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 0.75,
-                flexWrap: "nowrap",
-              }}
-            >
-              <Box sx={{ minWidth: 0, overflow: "hidden", textAlign: "left" }}>
-                <Typography
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: 13,
-                    lineHeight: 1.2,
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {item.name}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: "rgba(255,255,255,0.7)",
-                    fontSize: 10,
-                    lineHeight: 1.2,
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {item.tag}
-                </Typography>
-              </Box>
+        {shownActivity.map((item, index) => {
+          const style =
+            categoryStyles[item.tag as keyof typeof categoryStyles] ??
+            categoryStyles.Bills;
+          const isIncome = item.amount.trim().startsWith("+");
+
+          return (
+            <Box key={item.name + item.date}>
               <Box
                 sx={{
-                  textAlign: "right",
-                  whiteSpace: "nowrap",
-                  minWidth: "auto",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 1,
+                  flexWrap: "nowrap",
+                  py: 0.25,
                 }}
               >
-                <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
-                  {item.amount}
-                </Typography>
-                <Typography
-                  variant="caption"
+                <Box
                   sx={{
-                    color: "rgba(255,255,255,0.7)",
-                    fontSize: 10,
-                    lineHeight: 1.2,
+                    width: 34,
+                    height: 34,
+                    borderRadius: "50%",
+                    flex: "0 0 auto",
+                    display: "grid",
+                    placeItems: "center",
+                    color: "rgba(255,255,255,0.74)",
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                   }}
                 >
-                  {item.date}
-                </Typography>
+                  {style.icon}
+                </Box>
+                <Box
+                  sx={{
+                    minWidth: 0,
+                    overflow: "hidden",
+                    textAlign: "left",
+                    mr: "auto",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: 14,
+                      lineHeight: 1.2,
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "rgba(255,255,255,0.7)",
+                      fontSize: 11,
+                      lineHeight: 1.2,
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {item.tag}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    textAlign: "right",
+                    whiteSpace: "nowrap",
+                    minWidth: "auto",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: isIncome ? "#34d399" : "rgba(255,255,255,0.94)",
+                      fontWeight: 800,
+                      fontSize: 13,
+                    }}
+                  >
+                    {item.amount}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "rgba(255,255,255,0.7)",
+                      fontSize: 10,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {item.date}
+                  </Typography>
+                </Box>
               </Box>
+              {index < shownActivity.length - 1 && (
+                <Divider
+                  sx={{ borderColor: "rgba(255,255,255,0.14)", my: 1 }}
+                />
+              )}
             </Box>
-            {index < shownActivity.length - 1 && (
-              <Divider sx={{ borderColor: "rgba(255,255,255,0.14)", my: 1 }} />
-            )}
-          </Box>
-        ))}
+          );
+        })}
       </Stack>
     </Box>
   );
