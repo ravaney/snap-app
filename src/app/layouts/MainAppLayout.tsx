@@ -10,6 +10,8 @@ const navItems = [
   { label: "Profile", path: "/profile", icon: <FiUser size={20} /> },
 ];
 
+const NAVBAR_HEIGHT = 56;
+
 const navLinkStyles = ({ isActive }: { isActive: boolean }) => ({
   flex: "1 1 0%",
   minWidth: 0,
@@ -33,13 +35,20 @@ export const MainAppLayout = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100svh",
+        height: "100svh",
         position: "relative",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <Box sx={{ flex: 1, pb: { xs: 10, sm: 12 } }}>
+      <Box
+        sx={{
+          flex: 1,
+          minHeight: 0,
+          height: `calc(100svh - ${NAVBAR_HEIGHT}px)`,
+          overflowY: "auto",
+        }}
+      >
         <Outlet />
       </Box>
 
@@ -51,7 +60,7 @@ export const MainAppLayout = () => {
           bottom: 0,
           zIndex: 1000,
           px: 2,
-          py: 1,
+          height: `${NAVBAR_HEIGHT}px`,
           width: "100%",
           boxSizing: "border-box",
           bgcolor: "rgba(10, 18, 37, 0.96)",
@@ -59,7 +68,11 @@ export const MainAppLayout = () => {
           backdropFilter: "blur(12px)",
         }}
       >
-        <Stack direction="row" spacing={1} sx={{ width: "100%" }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{ width: "100%", height: "100%" }}
+        >
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} style={navLinkStyles}>
               {item.icon}
