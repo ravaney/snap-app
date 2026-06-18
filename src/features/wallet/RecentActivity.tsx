@@ -5,12 +5,7 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import {
-  FiArrowDownCircle,
-  FiCoffee,
-  FiHome,
-  FiRepeat,
-} from "react-icons/fi";
+import { FiArrowDownCircle, FiCoffee, FiHome, FiRepeat } from "react-icons/fi";
 
 const activity = [
   { name: "Spotify", date: "Today", amount: "- $12.99", tag: "Subscription" },
@@ -55,7 +50,7 @@ export const RecentActivity = ({
   const shownActivity = mode === "collapsed" ? activity.slice(0, 3) : activity;
 
   return (
-    <Box
+    <Stack
       sx={{
         p: 1.5,
         borderRadius: 3,
@@ -63,6 +58,7 @@ export const RecentActivity = ({
         border: "1px solid rgba(255,255,255,0.14)",
         boxShadow: "0 16px 32px rgba(7, 14, 31, 0.14)",
         backdropFilter: "blur(14px)",
+        display: "flex",
       }}
     >
       <Box
@@ -87,16 +83,6 @@ export const RecentActivity = ({
             }}
           >
             Recent activity
-          </Typography>
-          <Typography
-            variant="caption"
-            sx={{
-              color: "rgba(255,255,255,0.72)",
-              fontSize: 11,
-              lineHeight: 1.4,
-            }}
-          >
-            Today and this week
           </Typography>
         </Box>
         {showButton && (
@@ -220,6 +206,6 @@ export const RecentActivity = ({
           );
         })}
       </Stack>
-    </Box>
+    </Stack>
   );
 };

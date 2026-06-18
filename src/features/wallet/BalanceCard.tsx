@@ -27,7 +27,10 @@ export const BalanceCard = () => {
           gap: 2,
         }}
       >
-        <Typography variant="subtitle2" sx={{ opacity: 0.82, letterSpacing: 0.7 }}>
+        <Typography
+          variant="subtitle2"
+          sx={{ opacity: 0.82, letterSpacing: 0.7 }}
+        >
           Cash Balance
         </Typography>
         <Typography
@@ -49,7 +52,7 @@ export const BalanceCard = () => {
 
       <Box sx={{ textAlign: "left" }}>
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
             fontWeight: 800,
             letterSpacing: "-0.02em",
@@ -58,9 +61,6 @@ export const BalanceCard = () => {
           }}
         >
           $4,820.55
-        </Typography>
-        <Typography variant="body2" sx={{ mt: 1, opacity: 0.68 }}>
-          Updated 5 min ago
         </Typography>
       </Box>
 
