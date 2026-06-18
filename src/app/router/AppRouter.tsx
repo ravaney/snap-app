@@ -4,6 +4,7 @@ import { Login } from "../../features/auth/pages/Login";
 import { ActivityPage } from "../../features/transactions/ActivityPage";
 import { ProfilePage } from "../../features/profile/ProfilePage";
 import { MainAppLayout } from "../layouts/MainAppLayout";
+import { SendMoney } from "../../features/transfers/SendMoney";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/activity" element={<ActivityPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/send" element={<SendMoney />} />
       </Route>
     </Routes>
   );

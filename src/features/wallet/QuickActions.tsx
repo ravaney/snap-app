@@ -4,10 +4,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { FiArrowDownCircle, FiCreditCard, FiSend } from "react-icons/fi";
 import { DARK_BLUE, NEON_PINK, PINK, VIVID_BLUE } from "../../CONST";
+import { useNavigate } from "react-router-dom";
 
 type QuickAction = {
   label: string;
   description: string;
+  path: string;
   color: string;
   background: string;
   icon: React.ReactNode;
@@ -17,6 +19,7 @@ const actions: QuickAction[] = [
   {
     label: "Send",
     description: "Pay anyone",
+    path: "/send",
     color: VIVID_BLUE,
     background: "rgba(13, 71, 161, 0.1)",
     icon: <FiSend size={20} />,
@@ -24,6 +27,7 @@ const actions: QuickAction[] = [
   {
     label: "Request",
     description: "Ask for cash",
+    path: "/request",
     color: PINK,
     background: "rgba(194, 24, 91, 0.1)",
     icon: <FiArrowDownCircle size={20} />,
@@ -31,6 +35,7 @@ const actions: QuickAction[] = [
   {
     label: "Borrow",
     description: "Get a loan",
+    path: "/borrow",
     color: NEON_PINK,
     background: "rgba(193, 57, 160, 0.1)",
     icon: <FiCreditCard size={20} />,
@@ -38,6 +43,7 @@ const actions: QuickAction[] = [
 ];
 
 export const QuickActions = () => {
+  const nav = useNavigate();
   return (
     <Box
       sx={{
@@ -52,6 +58,7 @@ export const QuickActions = () => {
       <Stack direction="row" spacing={1} sx={{ width: "100%" }}>
         {actions.map((action) => (
           <Button
+            onClick={() => nav(action.path)}
             key={action.label}
             variant="text"
             sx={{
