@@ -10,7 +10,7 @@ export const HomePage = () => {
   return (
     <Stack
       className={styles.homepage}
-      sx={{ px: { xs: 2, md: 3 }, py: { xs: 3, md: 4 }, minHeight: "100svh" }}
+      sx={{ px: { xs: 2, md: 3 }, py: { xs: 3, md: 4 }, minHeight: "100%" }}
     >
       <Greetings name="Lamar" />
       <Box className={styles.content}>

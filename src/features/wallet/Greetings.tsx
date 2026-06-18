@@ -19,7 +19,7 @@ const getGreeting = () => {
 };
 export const Greetings = ({ name }: Greetingsprops) => {
   return (
-    <Stack sx={{ textAlign: "left", gap: 0.5 }}>
+    <Stack sx={{ textAlign: "left", gap: 0.5, height: "10%" }}>
       <Typography
         variant="subtitle2"
         sx={{
@@ -28,7 +28,7 @@ export const Greetings = ({ name }: Greetingsprops) => {
           letterSpacing: 1,
         }}
       >
-        {getGreeting()}
+        {getGreeting()},
       </Typography>
       <Typography variant="h4" sx={{ fontWeight: 700, color: "#ffffff" }}>
         {name}

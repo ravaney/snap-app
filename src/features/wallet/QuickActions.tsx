@@ -56,7 +56,11 @@ export const QuickActions = () => {
       >
         Quick actions
       </Typography>
-      <Stack direction="column" spacing={2}>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ width: "100%", flexWrap: "wrap" }}
+      >
         {actions.map((action) => (
           <Button
             key={action.label}
@@ -64,12 +68,12 @@ export const QuickActions = () => {
             color={action.color}
             startIcon={action.icon}
             sx={{
-              width: "100%",
+              flex: 1,
+              minWidth: 0,
               borderRadius: 3,
               py: 1.75,
               textTransform: "none",
               fontWeight: 700,
-              minWidth: 0,
             }}
           >
             {action.label}
