@@ -8,7 +8,6 @@ export const BalanceCard = () => {
       sx={{
         p: { xs: 3, md: 4 },
         borderRadius: 4,
-        // minHeight: 320,
         color: "white",
         background: "linear-gradient(135deg, #2354a7 0%, #1b3e75 100%)",
         display: "flex",

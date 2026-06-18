@@ -56,7 +56,7 @@ export const QuickActions = () => {
       >
         Quick actions
       </Typography>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="column" spacing={2}>
         {actions.map((action) => (
           <Button
             key={action.label}

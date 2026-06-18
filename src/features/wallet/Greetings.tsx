@@ -3,6 +3,20 @@ import Typography from "@mui/material/Typography";
 type Greetingsprops = {
   name: string;
 };
+const currentHour = new Date().getHours();
+const getGreeting = () => {
+  if (currentHour >= 3 && currentHour < 12) {
+    return "Good Morning";
+  } else if (currentHour >= 12 && currentHour < 15) {
+    return "Good Afternoon";
+  } else if (currentHour >= 15 && currentHour < 20) {
+    return "Good Evening";
+  } else if (currentHour >= 20 || currentHour < 3) {
+    return "Good Night";
+  } else {
+    return "Hello";
+  }
+};
 export const Greetings = ({ name }: Greetingsprops) => {
   return (
     <Stack sx={{ textAlign: "left", gap: 0.5 }}>
@@ -14,7 +28,7 @@ export const Greetings = ({ name }: Greetingsprops) => {
           letterSpacing: 1,
         }}
       >
-        Good morning
+        {getGreeting()}
       </Typography>
       <Typography variant="h4" sx={{ fontWeight: 700, color: "#ffffff" }}>
         {name}
