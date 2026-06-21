@@ -88,7 +88,7 @@ export const ActivityPage = () => {
         </Stack>
       }
     >
-      <Stack sx={{ gap: 2, width: "100%" }}>
+      <Stack sx={{ gap: 2, width: "100%", mb: 1 }}>
         <Stack direction="row" sx={{ gap: 2 }}>
           <MetricCard
             icon={<FaArrowTrendUp color="#2ecc8a" />}
@@ -131,8 +131,8 @@ export const ActivityPage = () => {
           <FilterButton name="Income" />
           <FilterButton name="Expenses" />
         </Stack>
-        <RecentActivity />
       </Stack>
+      <RecentActivity />
     </AppPage>
   );
 };
