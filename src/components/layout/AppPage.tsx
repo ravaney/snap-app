@@ -102,8 +102,11 @@ export const AppPage = ({ children, header, contentSx, sx }: AppPageProps) => {
           position: "relative",
           zIndex: 1,
           width: "100%",
-          // Optional: add top spacing if needed
-          // mt: 1,
+
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
         }}
       >
         {header && (
