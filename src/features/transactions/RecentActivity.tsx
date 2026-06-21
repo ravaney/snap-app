@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import isYesterday from "dayjs/plugin/isYesterday";
 import { Activity, type ActivityProps } from "./Activity";
+import { MOCK } from "../../CONST";
 
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
@@ -14,41 +15,6 @@ const formatDateHeader = (dateStr: string) => {
   if (date.isYesterday()) return "Yesterday";
   return date.format("MMMM D, YYYY");
 };
-
-const activities: ActivityProps[] = [
-  {
-    id: "1",
-    description: "Spotify",
-    amount: 12.99,
-    category: "Subscription",
-    date: "2026-06-20", // consistent ISO format
-    isIncome: false,
-  },
-  {
-    id: "2",
-    description: "Dinner out",
-    date: "2026-06-20",
-    amount: 48.3,
-    category: "Food",
-    isIncome: false,
-  },
-  {
-    id: "3",
-    description: "Salary",
-    date: "2026-05-15",
-    amount: 3250,
-    category: "Income",
-    isIncome: true,
-  },
-  {
-    id: "4",
-    description: "Utilities",
-    date: "2026-05-14",
-    amount: 82.75,
-    category: "Bills",
-    isIncome: false,
-  },
-];
 
 export const RecentActivity = () => {
   const groupByDate = (activities: ActivityProps[]) => {
@@ -65,7 +31,7 @@ export const RecentActivity = () => {
     );
   };
 
-  const grouped = groupByDate(activities);
+  const grouped = groupByDate(MOCK);
 
   const sortedDates = Object.keys(grouped).sort(
     (a, b) => new Date(b).getTime() - new Date(a).getTime(),
