@@ -2,13 +2,38 @@ import { NavLink, Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { FiHome, FiActivity, FiUser } from "react-icons/fi";
-import { VIVID_BLUE } from "../../CONST";
+import { FiActivity, FiUser } from "react-icons/fi";
+import { NEON_PINK, VIVID_BLUE } from "../../CONST";
+import snapLogo from "../../assets/snap.jpg";
 
 const navItems = [
-  { label: "Home", path: "/home", icon: <FiHome size={20} /> },
-  { label: "Activity", path: "/activity", icon: <FiActivity size={20} /> },
-  { label: "Profile", path: "/profile", icon: <FiUser size={20} /> },
+  {
+    label: "Home",
+    path: "/home",
+    icon: (_color: string, isActive = false) => (
+      <Box
+        component="img"
+        src={snapLogo}
+        alt="Snap"
+        sx={{
+          width: 22,
+          height: 22,
+          objectFit: "cover",
+          filter: isActive ? undefined : "brightness(0) invert(1)",
+        }}
+      />
+    ),
+  },
+  {
+    label: "Activity",
+    path: "/activity",
+    icon: (color: string) => <FiActivity size={20} color={color} />,
+  },
+  {
+    label: "Profile",
+    path: "/profile",
+    icon: (color: string) => <FiUser size={20} color={color} />,
+  },
 ];
 
 const NAVBAR_HEIGHT = 56;
@@ -24,10 +49,10 @@ const navLinkStyles = ({ isActive }: { isActive: boolean }) => ({
   gap: 2,
   padding: "6px",
   color: isActive ? VIVID_BLUE : "rgba(255,255,255,0.68)",
-  background: isActive ? "#ffffff" : "transparent",
+  background: "transparent",
   borderRadius: 14,
   textDecoration: "none",
-  transition: "background 0.18s ease, color 0.18s ease, transform 0.18s ease",
+  transition: "color 0.18s ease, transform 0.18s ease",
   textAlign: "center" as const,
   WebkitTapHighlightColor: "transparent",
 });
@@ -91,17 +116,41 @@ export const MainAppLayout = () => {
         >
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} style={navLinkStyles}>
-              {item.icon}
-              <Typography
-                sx={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  textTransform: "none",
-                }}
-              >
-                {item.label}
-              </Typography>
+              {({ isActive }) => {
+                const iconColor = isActive
+                  ? NEON_PINK
+                  : "rgba(255,255,255,0.68)";
+
+                return (
+                  <>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: 28,
+                        height: 28,
+                        color: iconColor,
+                        textShadow: isActive
+                          ? `0 0 8px ${NEON_PINK}, 0 0 16px ${VIVID_BLUE}`
+                          : undefined,
+                      }}
+                    >
+                      {item.icon(iconColor, isActive)}
+                    </Box>
+                    <Typography
+                      sx={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                        lineHeight: 1,
+                        textTransform: "none",
+                      }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </>
+                );
+              }}
             </NavLink>
           ))}
         </Stack>
