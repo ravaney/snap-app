@@ -5,7 +5,6 @@ import { Greetings } from "./Greetings";
 import styles from "./HomePage.module.css";
 import { BalanceCard } from "./BalanceCard";
 import { QuickActions } from "./QuickActions";
-import { RecentActivity } from "./RecentActivity";
 import snapLogo from "../../assets/snap.jpg";
 
 export const HomePage = () => {
@@ -37,7 +36,7 @@ export const HomePage = () => {
           <BalanceCard />
           <Box className={styles.sideStack}>
             <QuickActions />
-            <RecentActivity />
+            {/* //coupons */}
           </Box>
         </Box>
       </Box>
