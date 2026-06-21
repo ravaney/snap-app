@@ -23,30 +23,30 @@ const getGreeting = () => {
 
 export const Greetings = ({ snapTag }: Greetingsprops) => {
   return (
-    <Stack sx={{ textAlign: "left", gap: 0.5 }}>
+    <Stack
+      sx={{
+        gap: 0.5,
+        justifySelf: "center",
+        alignItems: "center",
+        mt: { xs: 2, md: 3 },
+      }}
+      direction={"row"}
+    >
       <Typography
-        variant="caption"
+        variant="subtitle1"
         sx={{
-          color: "rgba(255,255,255,0.75)",
-          textTransform: "uppercase",
-          letterSpacing: 1,
+          fontWeight: 600,
+          color: "#e2ecf8",
         }}
       >
         {getGreeting()},
       </Typography>
-      <Typography variant="h4" sx={{ fontWeight: 600, color: "#e2ecf8" }}>
-        {snapTag}
-      </Typography>
-      {/* <Typography
-        sx={{
-          color: "rgba(255,255,255,0.78)",
-          fontSize: 14,
-          fontWeight: 600,
-          lineHeight: 1,
-        }}
+      <Typography
+        variant="subtitle1"
+        sx={{ fontWeight: 600, color: "#e2ecf8" }}
       >
         {snapTag}
-      </Typography> */}
+      </Typography>
     </Stack>
   );
 };

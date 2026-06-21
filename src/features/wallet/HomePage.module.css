@@ -14,9 +14,3 @@
   display: grid;
   gap: 18px;
 }
-
-@media (max-width: 440px) {
-  .content {
-    padding-top: 14px;
-  }
-}

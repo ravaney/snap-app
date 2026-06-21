@@ -3,7 +3,12 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import type { SxProps, Theme } from "@mui/material/styles";
-
+import snapLogo from "../../assets/snap.jpg";
+import IconButton from "@mui/material/IconButton";
+import Badge from "@mui/material/Badge";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import mockPerson from "../../assets/profile.png";
+import Avatar from "@mui/material/Avatar";
 type AppPageProps = {
   children: ReactNode;
   header?: ReactNode;
@@ -44,6 +49,47 @@ export const AppPage = ({ children, header, contentSx, sx }: AppPageProps) => {
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
+      <Stack
+        direction={"row"}
+        sx={{
+          justifyContent: "space-between",
+          pb: 1,
+          // mb: 1,
+          boxShadow: "0 16px 24px -16px rgba(0,0,0,0.45)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        <Avatar
+          src={mockPerson}
+          aria-label={"Profile"}
+          sx={{
+            width: 48,
+            height: 48,
+            borderRadius: "50%",
+            bgcolor: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.16)",
+            color: "white",
+            boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
+          }}
+        />
+        <Box
+          component="img"
+          src={snapLogo}
+          alt="Snap"
+          sx={{
+            width: 44,
+            height: 44,
+            borderRadius: 2,
+            objectFit: "cover",
+            boxShadow: "0 12px 24px rgba(0,0,0,0.18)",
+          }}
+        />
+        <IconButton aria-label={"Notifications"}>
+          <Badge badgeContent={5} color="secondary" max={99}>
+            <IoMdNotificationsOutline size={36} color="white" />
+          </Badge>
+        </IconButton>
+      </Stack>
       {header && (
         <Box sx={{ position: "relative", zIndex: 1, mb: { xs: 2, md: 3 } }}>
           {header}
