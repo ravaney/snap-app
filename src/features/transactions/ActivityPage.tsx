@@ -8,7 +8,6 @@ import { FaSearch } from "react-icons/fa";
 import { FaArrowTrendDown } from "react-icons/fa6";
 import { AppPage } from "../../components/layout/AppPage";
 import Button from "@mui/material/Button";
-import snapLogo from "../../assets/snap.jpg";
 import { RecentActivity } from "./RecentActivity";
 
 const cardSx = {
@@ -64,7 +63,11 @@ export const ActivityPage = () => {
       header={
         <Stack
           direction="row"
-          sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
+          sx={{
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            mt: { xs: 2, md: 3 },
+          }}
         >
           <Stack sx={{ textAlign: "left", color: "#e2ecf8", gap: 0.5 }}>
             <Typography variant="h4" sx={{ fontWeight: 600 }}>
@@ -82,22 +85,10 @@ export const ActivityPage = () => {
               June 2026
             </Typography>
           </Stack>
-          <Box
-            component="img"
-            src={snapLogo}
-            alt="Snap"
-            sx={{
-              width: 44,
-              height: 44,
-              borderRadius: 2,
-              objectFit: "cover",
-              boxShadow: "0 12px 24px rgba(0,0,0,0.18)",
-            }}
-          />
         </Stack>
       }
     >
-      <Stack sx={{ gap: 2, width: "100%" }}>
+      <Stack sx={{ gap: 2, width: "100%", mb: 1 }}>
         <Stack direction="row" sx={{ gap: 2 }}>
           <MetricCard
             icon={<FaArrowTrendUp color="#2ecc8a" />}
@@ -140,8 +131,8 @@ export const ActivityPage = () => {
           <FilterButton name="Income" />
           <FilterButton name="Expenses" />
         </Stack>
-        <RecentActivity />
       </Stack>
+      <RecentActivity />
     </AppPage>
   );
 };
