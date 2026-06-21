@@ -8,6 +8,9 @@ import { FaSearch } from "react-icons/fa";
 import { FaArrowTrendDown } from "react-icons/fa6";
 import { AppPage } from "../../components/layout/AppPage";
 import Button from "@mui/material/Button";
+import snapLogo from "../../assets/snap.jpg";
+import Divider from "@mui/material/Divider";
+
 const cardSx = {
   flex: 1,
   p: 1,
@@ -55,13 +58,37 @@ export const ActivityPage = () => {
     <AppPage
       contentSx={{ px: 0, color: "#e2ecf8" }}
       header={
-        <Stack sx={{ textAlign: "left", color: "#e2ecf8" }}>
-          <Typography variant="h5" sx={{ fontWeight: 600 }}>
-            Activity
-          </Typography>
-          <Typography variant="caption" sx={{ textAlign: "left" }}>
-            June 2026
-          </Typography>
+        <Stack
+          direction="row"
+          sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
+        >
+          <Stack sx={{ textAlign: "left", color: "#e2ecf8" }}>
+            <Typography variant="h4" sx={{ fontWeight: 600 }}>
+              Activity
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{
+                textAlign: "left",
+                letterSpacing: 1,
+                textTransform: "uppercase",
+              }}
+            >
+              June 2026
+            </Typography>
+          </Stack>
+          <Box
+            component="img"
+            src={snapLogo}
+            alt="Snap"
+            sx={{
+              width: 44,
+              height: 44,
+              borderRadius: 2,
+              objectFit: "cover",
+              boxShadow: "0 12px 24px rgba(0,0,0,0.18)",
+            }}
+          />
         </Stack>
       }
     >

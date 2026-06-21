@@ -25,7 +25,7 @@ export const Greetings = ({ name, snapTag }: Greetingsprops) => {
   return (
     <Stack sx={{ textAlign: "left", gap: 0.5 }}>
       <Typography
-        variant="subtitle2"
+        variant="caption"
         sx={{
           color: "rgba(255,255,255,0.75)",
           textTransform: "uppercase",
@@ -34,10 +34,10 @@ export const Greetings = ({ name, snapTag }: Greetingsprops) => {
       >
         {getGreeting()},
       </Typography>
-      <Typography variant="h4" sx={{ fontWeight: 700, color: "#ffffff" }}>
-        {name}
+      <Typography variant="h4" sx={{ fontWeight: 600, color: "#e2ecf8" }}>
+        {snapTag}
       </Typography>
-      <Typography
+      {/* <Typography
         sx={{
           color: "rgba(255,255,255,0.78)",
           fontSize: 14,
@@ -46,7 +46,7 @@ export const Greetings = ({ name, snapTag }: Greetingsprops) => {
         }}
       >
         {snapTag}
-      </Typography>
+      </Typography> */}
     </Stack>
   );
 };
