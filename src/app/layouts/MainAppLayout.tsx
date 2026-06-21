@@ -36,11 +36,17 @@ export const MainAppLayout = () => {
   return (
     <Box
       sx={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        minHeight: "100svh",
         width: "100%",
-        height: "100svh",
-        position: "relative",
         display: "flex",
         flexDirection: "column",
+        overflowX: "hidden",
+        boxSizing: "border-box",
       }}
     >
       <Box
@@ -49,6 +55,12 @@ export const MainAppLayout = () => {
           minHeight: 0,
           height: `calc(100svh - ${NAVBAR_HEIGHT}px)`,
           overflowY: "auto",
+          width: "100%",
+          boxSizing: "border-box",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
         }}
       >
         <Outlet />
