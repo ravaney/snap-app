@@ -9,11 +9,11 @@ import { FaArrowTrendDown } from "react-icons/fa6";
 import { AppPage } from "../../components/layout/AppPage";
 import Button from "@mui/material/Button";
 import snapLogo from "../../assets/snap.jpg";
+import { RecentActivity } from "./RecentActivity";
 
 const cardSx = {
   flex: 1,
-  p: 1,
-  pl: 2,
+  p: 2,
   borderRadius: "0.5rem",
   bgcolor: "#234169",
   textAlign: "left",
@@ -27,10 +27,15 @@ type MetricCardProps = {
 const MetricCard = ({ icon, label, value, color }: MetricCardProps) => {
   return (
     <Box sx={cardSx}>
-      <Typography variant="caption">
+      <Typography
+        variant="caption"
+        sx={{
+          letterSpacing: 1,
+        }}
+      >
         {icon} {label}
       </Typography>
-      <Typography variant="h6" sx={{ color }}>
+      <Typography variant="h6" sx={{ color, fontWeight: 700 }}>
         {value}
       </Typography>
     </Box>
@@ -114,6 +119,7 @@ export const ActivityPage = () => {
               color: "#e2ecf8",
               opacity: 1,
               fontSize: 14,
+              letterSpacing: 1,
             },
           }}
           size="small"
@@ -133,6 +139,7 @@ export const ActivityPage = () => {
           <FilterButton name="Income" />
           <FilterButton name="Expenses" />
         </Stack>
+        <RecentActivity />
       </Stack>
     </AppPage>
   );

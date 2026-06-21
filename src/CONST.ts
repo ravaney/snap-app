@@ -3,3 +3,12 @@ export const VIVID_BLUE = "#0D47A1";
 export const PINK = "#c2185b";
 export const PASTEL_BLUE = "#a8c4ed";
 export const DARK_BLUE = "#0a3d7a";
+
+export const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
+};
