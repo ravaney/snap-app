@@ -61,7 +61,7 @@ export const ActivityPage = () => {
           direction="row"
           sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
         >
-          <Stack sx={{ textAlign: "left", color: "#e2ecf8" }}>
+          <Stack sx={{ textAlign: "left", color: "#e2ecf8", gap: 0.5 }}>
             <Typography variant="h4" sx={{ fontWeight: 600 }}>
               Activity
             </Typography>
