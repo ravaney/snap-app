@@ -9,7 +9,6 @@ import { FaArrowTrendDown } from "react-icons/fa6";
 import { AppPage } from "../../components/layout/AppPage";
 import Button from "@mui/material/Button";
 import snapLogo from "../../assets/snap.jpg";
-import Divider from "@mui/material/Divider";
 
 const cardSx = {
   flex: 1,

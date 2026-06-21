@@ -21,7 +21,7 @@ const getGreeting = () => {
   }
 };
 
-export const Greetings = ({ name, snapTag }: Greetingsprops) => {
+export const Greetings = ({ snapTag }: Greetingsprops) => {
   return (
     <Stack sx={{ textAlign: "left", gap: 0.5 }}>
       <Typography
