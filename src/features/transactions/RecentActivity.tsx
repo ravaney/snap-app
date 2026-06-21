@@ -38,7 +38,7 @@ export const RecentActivity = () => {
   );
 
   return (
-    <Stack sx={{ gap: 2, width: "100%" }}>
+    <Stack sx={{ gap: 2, width: "100%", pb: 1 }}>
       {sortedDates.map((date) => (
         <Stack key={date} sx={{ gap: 1 }}>
           <Typography

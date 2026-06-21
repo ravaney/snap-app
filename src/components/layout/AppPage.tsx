@@ -32,7 +32,7 @@ export const AppPage = ({ children, header, contentSx, sx }: AppPageProps) => {
           display: "flex",
           flexDirection: "column",
           px: { xs: 2, md: 3 },
-          py: { xs: 3, md: 4 },
+          pt: { xs: 3, md: 4 },
           boxSizing: "border-box",
           color: "#ffffff",
           background:
