@@ -31,7 +31,7 @@ export const AppPage = ({ children, header, contentSx, sx }: AppPageProps) => {
           color: "#ffffff",
           background:
             "radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.24), transparent 20%), radial-gradient(circle at 85% 8%, rgba(14, 165, 233, 0.16), transparent 18%), radial-gradient(circle at 80% 90%, rgba(59, 130, 246, 0.18), transparent 22%), linear-gradient(180deg, #0a2047 0%, #051228 100%)",
-          overflow: "hidden",
+
           "&::before": {
             content: '""',
             position: "absolute",

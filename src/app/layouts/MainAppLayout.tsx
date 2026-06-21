@@ -36,8 +36,6 @@ const navItems = [
   },
 ];
 
-const NAVBAR_HEIGHT = 56;
-
 const navLinkStyles = ({ isActive }: { isActive: boolean }) => ({
   flex: "1 1 0%",
   minWidth: 0,
@@ -61,24 +59,22 @@ export const MainAppLayout = () => {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: "fixed", // keep fixed to cover the whole viewport
         top: 0,
         right: 0,
         bottom: 0,
         left: 0,
-        minHeight: "100svh",
-        width: "100%",
         display: "flex",
         flexDirection: "column",
-        overflowX: "hidden",
+        overflow: "hidden", // prevent any overflow outside
         boxSizing: "border-box",
       }}
     >
+      {/* Content area – takes all remaining space and scrolls */}
       <Box
         sx={{
           flex: 1,
-          minHeight: 0,
-          height: `calc(100svh - ${NAVBAR_HEIGHT}px)`,
+          minHeight: 0, // allow shrinking in flex
           overflowY: "auto",
           width: "100%",
           boxSizing: "border-box",
@@ -91,16 +87,14 @@ export const MainAppLayout = () => {
         <Outlet />
       </Box>
 
+      {/* Navbar – now part of the flex flow, no fixed positioning */}
       <Box
         component="nav"
         sx={{
-          position: "fixed",
-          insetX: 0,
-          bottom: 0,
-          zIndex: 1000,
+          flexShrink: 0, // prevent shrinking
+          height: 64, // fixed height, padding included via box-sizing
           px: 2,
-          pb: "env(safe-area-inset-bottom)",
-          height: `calc(${NAVBAR_HEIGHT}px + env(safe-area-inset-bottom))`,
+          pb: "env(safe-area-inset-bottom)", // extra bottom padding for safe areas
           width: "100%",
           boxSizing: "border-box",
           bgcolor: "rgba(5, 18, 40, 0.96)",
@@ -112,7 +106,7 @@ export const MainAppLayout = () => {
         <Stack
           direction="row"
           spacing={0.75}
-          sx={{ width: "100%", height: `${NAVBAR_HEIGHT}px` }}
+          sx={{ width: "100%", height: "100%" }}
         >
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} style={navLinkStyles}>
