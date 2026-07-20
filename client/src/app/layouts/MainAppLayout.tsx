@@ -64,6 +64,7 @@ export const MainAppLayout = () => {
           flex: 1,
           minHeight: 0,
           overflowY: "auto",
+          overscrollBehaviorY: "contain",
           width: "100%",
           boxSizing: "border-box",
           // The nav overlays this scroller, so reserve enough space for the
