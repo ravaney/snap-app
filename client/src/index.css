@@ -62,6 +62,7 @@ body,
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overscroll-behavior-y: contain;
   /* Prevent the browser's pull-to-refresh/overscroll area flashing white. */
   background-color: #051228;
 }

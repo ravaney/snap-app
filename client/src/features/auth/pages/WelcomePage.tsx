@@ -23,6 +23,7 @@ export const WelcomePage = () => {
         pb: "max(24px, env(safe-area-inset-bottom))",
         boxSizing: "border-box",
         color: "white",
+        overscrollBehaviorY: "contain",
       }}
     >
       {/* Branding */}
