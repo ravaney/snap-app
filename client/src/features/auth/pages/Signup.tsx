@@ -17,9 +17,17 @@ export const Signup = () => {
       component="main"
       sx={{
         flex: 1,
-        minHeight: 0,
+        minHeight: "100svh",
+        display: "flex",
+        flexDirection: "column",
         overflowY: "auto",
         width: "100%",
+        bgcolor: "white",
+      }}
+      contentSx={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Stack
@@ -37,12 +45,13 @@ export const Signup = () => {
             width: 90,
             height: "auto",
             objectFit: "contain",
+            pt: "max(32px, env(safe-area-inset-top))",
+            pb: 1,
           }}
         />
 
         <Box sx={{ textAlign: "center" }}>
           <Typography
-            component="h1"
             variant="h5"
             sx={{
               fontSize: "1.5rem",
@@ -51,17 +60,6 @@ export const Signup = () => {
             }}
           >
             Create your account
-          </Typography>
-
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{
-              mt: 0.75,
-              fontSize: "0.875rem",
-            }}
-          >
-            Enter your details to get started.
           </Typography>
         </Box>
       </Stack>
@@ -110,9 +108,14 @@ export const Signup = () => {
           Sign Up
         </Button>
       </FormControl>
-      <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>
-        Already have an account? <Link to="/login">Log in</Link>
-      </Typography>
+      <Box
+        id="footer"
+        sx={{ mt: "auto", pb: "env(safe-area-inset-bottom)" }}
+      >
+        <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>
+          Already have an account? <Link to="/login">Log in</Link>
+        </Typography>
+      </Box>
     </AppPage>
   );
 };
