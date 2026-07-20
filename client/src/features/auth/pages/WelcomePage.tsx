@@ -15,7 +15,7 @@ export const WelcomePage = () => {
     <Box
       component="main"
       sx={{
-        minHeight: "100dvh",
+        minHeight: "100svh",
         display: "grid",
         gridTemplateRows: "1fr auto",
         px: 3,
@@ -23,7 +23,6 @@ export const WelcomePage = () => {
         pb: "max(24px, env(safe-area-inset-bottom))",
         boxSizing: "border-box",
         color: "white",
-        overscrollBehaviorY: "contain",
       }}
     >
       {/* Branding */}

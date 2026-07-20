@@ -45,7 +45,7 @@ export const MainAppLayout = () => {
   return (
     <Box
       sx={{
-        height: "100dvh",
+        height: "100svh",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
