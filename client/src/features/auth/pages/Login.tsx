@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PinPad from "../components/PinPad";
 import styles from "./LoginPage.module.css";
 import { usePWAInstall } from "../../../hooks/usePWAInstall";
+import { TbFaceId } from "react-icons/tb";
 
 const PIN_LENGTH = 4;
 
@@ -74,9 +75,18 @@ export const Login = () => {
           </div>
 
           {showPinpad && (
-            <div className={`${styles.padWrapper} ${styles.padVisible}`}>
-              <PinPad onDigit={handleDigit} onDelete={handleDelete} />
-            </div>
+            <>
+              <button
+                type="button"
+                className={styles.faceIdButton}
+                aria-label="Use Face ID"
+              >
+                <TbFaceId aria-hidden="true" />
+              </button>
+              <div className={`${styles.padWrapper} ${styles.padVisible}`}>
+                <PinPad onDigit={handleDigit} onDelete={handleDelete} />
+              </div>
+            </>
           )}
         </div>
         <div className={styles.headerActions}>

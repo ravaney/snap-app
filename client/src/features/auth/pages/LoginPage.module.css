@@ -95,7 +95,41 @@
 
 .padWrapper {
   width: 100%;
-  margin: clamp(18px, 3vh, 28px) 0 6px;
+  margin: 12px 0 6px;
+}
+
+.faceIdButton {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  margin-top: clamp(18px, 3vh, 28px);
+  padding: 0;
+  border: 1px solid rgba(13, 71, 161, 0.14);
+  border-radius: 16px;
+  background: #f0f5fb;
+  color: #0d47a1;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
+  font-size: 29px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 100ms ease,
+    color 100ms ease,
+    transform 100ms ease;
+}
+
+.faceIdButton:active {
+  background: #0d47a1;
+  color: #ffffff;
+  transform: scale(0.92);
+}
+
+.faceIdButton:focus-visible {
+  outline: 3px solid rgba(13, 71, 161, 0.2);
+  outline-offset: 3px;
 }
 
 .padVisible {
