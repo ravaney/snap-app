@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import snapLogo from "../../../assets/snap.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PinPad from "../components/PinPad";
 import styles from "./LoginPage.module.css";
 import { usePWAInstall } from "../../../hooks/usePWAInstall";
@@ -90,9 +90,9 @@ export const Login = () => {
             </button>
           )}
         </div>
-        <a className={styles.signUp}>
+        <Link className={styles.signUp} to="/signup">
           Don't have an account? <span>Sign Up</span>
-        </a>
+        </Link>
       </div>
     </main>
   );

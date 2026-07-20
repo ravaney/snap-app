@@ -5,12 +5,15 @@ import { ActivityPage } from "../../features/transactions/ActivityPage";
 import { ProfilePage } from "../../features/profile/ProfilePage";
 import { MainAppLayout } from "../layouts/MainAppLayout";
 import { SendMoney } from "../../features/transfers/SendMoney";
+import { Signup } from "../../features/auth/pages/Signup";
+import { WelcomePage } from "../../features/auth/pages/WelcomePage";
 
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<WelcomePage />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
       <Route element={<MainAppLayout />}>
         <Route path="/home" element={<HomePage />} />
