@@ -4,14 +4,14 @@
   display: flex;
   justify-content: center;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 62%, #ffffff 100%);
-  padding: 18px 20px 16px;
+  padding: clamp(16px, 2.5vh, 22px) 20px 14px;
   box-sizing: border-box;
 }
 
 .content {
   width: 100%;
   max-width: 350px;
-  min-height: calc(100svh - 34px);
+  min-height: calc(100svh - clamp(30px, 5vh, 44px));
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -20,7 +20,10 @@
 
 .formArea {
   width: 100%;
-  padding-top: clamp(8px, 2.5vh, 24px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(20px, 5vh, 42px);
 }
 
 .header {
@@ -93,7 +96,8 @@
 
 .padWrapper {
   width: 100%;
-  margin: 0 0 10px;
+  margin: auto 0 6px;
+  padding-top: clamp(14px, 2.5vh, 24px);
 }
 
 .padVisible {
@@ -103,7 +107,7 @@
 
 .signUp {
   margin-top: auto;
-  padding: 12px 0 2px;
+  padding: 8px 0 2px;
   color: #6b7280;
   font-size: 13px;
   font-weight: 500;
