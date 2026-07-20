@@ -20,7 +20,6 @@
 
 .formArea {
   width: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
   padding-top: clamp(20px, 5vh, 42px);
@@ -30,7 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: clamp(18px, 3vh, 28px);
 }
 
 .logoIcon {
@@ -60,7 +59,7 @@
   width: 100%;
   display: grid;
   gap: 10px;
-  margin: 0 auto 14px;
+  margin: 0 auto;
 }
 
 .input {
@@ -96,8 +95,7 @@
 
 .padWrapper {
   width: 100%;
-  margin: auto 0 6px;
-  padding-top: clamp(14px, 2.5vh, 24px);
+  margin: clamp(18px, 3vh, 28px) 0 6px;
 }
 
 .padVisible {
