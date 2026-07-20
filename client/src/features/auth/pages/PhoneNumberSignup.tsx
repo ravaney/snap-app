@@ -4,26 +4,34 @@ import styles from "./LoginPage.module.css";
 import { useState } from "react";
 import { MuiTelInput } from "mui-tel-input";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export const PhoneNumberSignup = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   return (
-    <>
-      {/* <Box sx={{ textAlign: "center" }}> */}
+    <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
       <Typography
-        variant="caption"
+        variant="h6"
         sx={{
-          fontSize: "1rem",
-          pb: 3,
+          fontSize: "1.1rem",
+          fontWeight: 750,
+          textAlign: "left",
+          color: "text.primary",
+          mb: 0.75,
         }}
       >
-        Enter your phone number to sign up for Snap.
+        What's your phone number?
       </Typography>
-      {/* </Box> */}
+      <Typography
+        variant="body2"
+        sx={{ textAlign: "left", color: "text.secondary", mb: 3 }}
+      >
+        We'll use it to create and secure your Snap account.
+      </Typography>
       <FormControl
         sx={{
-          mx: "auto",
-          p: 3,
+          width: "100%",
+          flex: 1,
           gap: 2,
           display: "flex",
           flexDirection: "column",
@@ -38,19 +46,30 @@ export const PhoneNumberSignup = () => {
           className={styles.input}
           size="medium"
         />
-        <div>
+        <Typography
+          variant="caption"
+          sx={{ textAlign: "left", color: "text.secondary", lineHeight: 1.5 }}
+        >
           By continuing, you agree to our <a href="/terms">Terms</a> and{" "}
           <a href="/privacy">Privacy Policy</a>.
-        </div>
+        </Typography>
         <Button
           disabled={!phoneNumber}
           variant="contained"
           type="submit"
           className={styles.button}
+          sx={{
+            mt: "auto",
+            minHeight: 52,
+            borderRadius: 2.5,
+            fontSize: "1rem",
+            fontWeight: 750,
+            textTransform: "none",
+          }}
         >
           Continue
         </Button>
       </FormControl>
-    </>
+    </Box>
   );
 };

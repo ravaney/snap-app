@@ -5,7 +5,13 @@ export const VIVID_BLUE = "#0D47A1";
 export const PINK = "#c2185b";
 export const PASTEL_BLUE = "#a8c4ed";
 export const DARK_BLUE = "#0a3d7a";
-export const COLORS = [NEON_PINK, VIVID_BLUE, PINK, PASTEL_BLUE, DARK_BLUE];
+export const COLORS = {
+  neonPink: NEON_PINK,
+  vividBlue: VIVID_BLUE,
+  pink: PINK,
+  pastelBlue: PASTEL_BLUE,
+  darkBlue: DARK_BLUE,
+};
 
 export const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat("en-US", {
