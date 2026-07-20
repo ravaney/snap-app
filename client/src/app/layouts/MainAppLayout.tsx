@@ -8,6 +8,7 @@ import snapLogo from "../../assets/snap.jpg";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { useState } from "react";
+import { AppHeader } from "./AppHeader";
 
 const navItems = [
   {
@@ -44,26 +45,33 @@ export const MainAppLayout = () => {
   return (
     <Box
       sx={{
-        position: "fixed", // keep fixed to cover the whole viewport
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
+        height: "100dvh",
         display: "flex",
         flexDirection: "column",
-        overflow: "hidden", // prevent any overflow outside
-        boxSizing: "border-box",
+        overflow: "hidden",
+        color: "white",
+
+        // Put the shared background on the layout
+        background:
+          "radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.24), transparent 20%), radial-gradient(circle at 85% 8%, rgba(14, 165, 233, 0.16), transparent 18%), radial-gradient(circle at 80% 90%, rgba(59, 130, 246, 0.18), transparent 22%), linear-gradient(180deg, #0a2047 0%, #051228 100%)",
       }}
     >
+      <AppHeader />
       {/* Content area – takes all remaining space and scrolls */}
       <Box
+        component="main"
         sx={{
           flex: 1,
-          minHeight: 0, // allow shrinking in flex
+          minHeight: 0,
           overflowY: "auto",
           width: "100%",
           boxSizing: "border-box",
+          // The nav overlays this scroller, so reserve enough space for the
+          // final outlet content to scroll completely above it.
+          pb: "calc(72px + env(safe-area-inset-bottom))",
+          scrollPaddingBottom: "calc(72px + env(safe-area-inset-bottom))",
           scrollbarWidth: "none",
+
           "&::-webkit-scrollbar": {
             display: "none",
           },
@@ -78,18 +86,20 @@ export const MainAppLayout = () => {
         onChange={(_event, newValue) => setValue(newValue)}
         showLabels
         sx={{
-          position: "fixed",
-          right: 0,
+          position: "absolute",
           bottom: 0,
+          right: 0,
           left: 0,
           zIndex: (theme) => theme.zIndex.appBar,
-          borderTop: "1px solid rgba(255, 255, 255, 0.2)",
-          // Semi-transparent background allows the blur to remain visible
-          bgcolor: "rgba(8, 0, 0, 0.3)",
-          backdropFilter: "blur(1px)",
-          WebkitBackdropFilter: "blur(10px)",
-          height: 72,
+
+          height: "calc(72px + env(safe-area-inset-bottom))",
           pb: "env(safe-area-inset-bottom)",
+          boxSizing: "border-box",
+
+          bgcolor: "transparent",
+          backdropFilter: "blur(1px)",
+          WebkitBackdropFilter: "blur(1px)",
+          borderTop: "1px solid rgba(255, 255, 255, 0.12)",
         }}
       >
         {navItems.map((item, index) => {

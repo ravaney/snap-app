@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { AppPage, PageHeader } from "../../components/layout/AppPage";
+import { AppPage, PageHeader } from "../../app/layouts/AppPage";
 
 export const SendMoney = () => {
   return (

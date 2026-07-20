@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaArrowTrendDown } from "react-icons/fa6";
-import { AppPage } from "../../components/layout/AppPage";
 import Button from "@mui/material/Button";
 import { RecentActivity } from "./RecentActivity";
+import { AppPage, PageHeader } from "../../app/layouts/AppPage";
 
 const cardSx = {
   flex: 1,
@@ -60,33 +60,7 @@ export const ActivityPage = () => {
   return (
     <AppPage
       contentSx={{ px: 0, color: "#e2ecf8" }}
-      header={
-        <Stack
-          direction="row"
-          sx={{
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            mt: { xs: 2, md: 3 },
-          }}
-        >
-          <Stack sx={{ textAlign: "left", color: "#e2ecf8", gap: 0.5 }}>
-            <Typography variant="h4" sx={{ fontWeight: 600 }}>
-              Activity
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{
-                textAlign: "left",
-                letterSpacing: 1,
-                textTransform: "uppercase",
-                fontWeight: 700,
-              }}
-            >
-              June 2026
-            </Typography>
-          </Stack>
-        </Stack>
-      }
+      header={<PageHeader title="Activity" subtitle="June 2026" />}
     >
       <Stack sx={{ gap: 2, width: "100%", mb: 1 }}>
         <Stack direction="row" sx={{ gap: 2 }}>

@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { AppPage } from "../../components/layout/AppPage";
+import { AppPage } from "../../app/layouts/AppPage";
 import { Greetings } from "./Greetings";
 import styles from "./HomePage.module.css";
 import { BalanceCard } from "./BalanceCard";
