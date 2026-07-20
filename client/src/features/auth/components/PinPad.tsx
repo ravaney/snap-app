@@ -1,4 +1,4 @@
-import type { MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import styles from "./PinPad.module.css";
 
 type PinPadProps = {
@@ -7,7 +7,26 @@ type PinPadProps = {
 };
 
 export default function PinPad({ onDigit, onDelete }: PinPadProps) {
-  const digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "delete"];
+  const digits = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "empty",
+    "0",
+    "delete",
+  ];
+  const [pressedKey, setPressedKey] = useState<string | null>(null);
+
+  const showPress = (key: string) => setPressedKey(key);
+  const releasePress = () => {
+    window.setTimeout(() => setPressedKey(null), 120);
+  };
 
   const handleButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
@@ -20,12 +39,21 @@ export default function PinPad({ onDigit, onDelete }: PinPadProps) {
   return (
     <div className={styles.grid} aria-label="PIN keypad">
       {digits.map((digit) => {
+        if (digit === "empty") {
+          return <span key="empty" className={styles.emptyKey} aria-hidden="true" />;
+        }
+
         if (digit === "delete") {
           return (
             <button
               key="delete"
-              className={styles.deleteBtn}
+              className={`${styles.deleteBtn} ${
+                pressedKey === digit ? styles.pressed : ""
+              }`}
               onClick={(event) => handleButtonClick(event, onDelete)}
+              onPointerDown={() => showPress(digit)}
+              onPointerUp={releasePress}
+              onPointerCancel={releasePress}
               type="button"
               aria-label="Delete last digit"
             >
@@ -37,10 +65,15 @@ export default function PinPad({ onDigit, onDelete }: PinPadProps) {
         return (
           <button
             key={digit}
-            className={styles.digitBtn}
+            className={`${styles.digitBtn} ${
+              pressedKey === digit ? styles.pressed : ""
+            }`}
             onClick={(event) =>
               handleButtonClick(event, () => onDigit(digit))
             }
+            onPointerDown={() => showPress(digit)}
+            onPointerUp={releasePress}
+            onPointerCancel={releasePress}
             type="button"
             aria-label={`Enter ${digit}`}
           >

@@ -4,14 +4,14 @@
   display: flex;
   justify-content: center;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 62%, #ffffff 100%);
-  padding: 28px 20px 20px;
+  padding: 18px 20px 16px;
   box-sizing: border-box;
 }
 
 .content {
   width: 100%;
   max-width: 350px;
-  min-height: calc(100svh - 48px);
+  min-height: calc(100svh - 34px);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -20,19 +20,19 @@
 
 .formArea {
   width: 100%;
-  padding-top: clamp(22px, 8vh, 70px);
+  padding-top: clamp(8px, 2.5vh, 24px);
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .logoIcon {
-  width: 112px;
-  height: 112px;
+  width: clamp(76px, 11vh, 94px);
+  height: clamp(76px, 11vh, 94px);
   object-fit: contain;
   margin-bottom: 6px;
   filter: drop-shadow(0 14px 18px rgba(13, 71, 161, 0.12));
@@ -41,28 +41,28 @@
 .logo {
   margin: 0;
   color: #0d47a1;
-  font-size: 54px;
+  font-size: clamp(40px, 6vh, 48px);
   font-weight: 800;
   line-height: 0.95;
 }
 
 .subtitle {
-  margin: 10px 0 0;
+  margin: 7px 0 0;
   color: #5f6675;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.3;
 }
 
 .fields {
   width: 100%;
   display: grid;
-  gap: 12px;
-  margin: 0 auto 18px;
+  gap: 10px;
+  margin: 0 auto 14px;
 }
 
 .input {
   width: 100%;
-  height: 52px;
+  height: 50px;
   border: 1px solid #dbe3ef;
   border-radius: 16px;
   padding: 0 16px;
@@ -93,7 +93,7 @@
 
 .padWrapper {
   width: 100%;
-  margin: 0 0 18px;
+  margin: 0 0 10px;
 }
 
 .padVisible {
@@ -103,7 +103,7 @@
 
 .signUp {
   margin-top: auto;
-  padding: 18px 0 4px;
+  padding: 12px 0 2px;
   color: #6b7280;
   font-size: 13px;
   font-weight: 500;
