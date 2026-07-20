@@ -22,7 +22,7 @@ const navItems = [
           width: 20,
           height: 20,
           objectFit: "cover",
-          filter: isActive ? "none" : "grayscale(1) opacity(0.6)",
+          filter: isActive ? "none" : "brightness(0) invert(1)",
         }}
       />
     ),
@@ -94,26 +94,20 @@ export const MainAppLayout = () => {
       >
         {navItems.map((item, index) => {
           const isActive = value === index;
-          const color = isActive ? VIVID_BLUE : NEON_PINK;
+          const color = isActive ? NEON_PINK : "";
           return (
             <BottomNavigationAction
               key={item.path}
               component={NavLink}
               to={item.path}
-              label={<Typography variant="caption">{item.label}</Typography>}
+              label={
+                <Typography sx={{ fontWeight: isActive ? 800 : 400 }}>
+                  {item.label}
+                </Typography>
+              }
               icon={item.icon(color, isActive)}
               sx={{
                 color: isActive ? VIVID_BLUE : "white",
-                "& .MuiBottomNavigationAction-label": {
-                  fontSize: "0.75rem", // 12px
-                  fontWeight: 500,
-                },
-
-                // MUI normally increases the selected label size
-                "& .MuiBottomNavigationAction-label.Mui-selected": {
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                },
               }}
             />
           );
