@@ -13,7 +13,6 @@ export const Login = () => {
 
   const [pin, setPin] = useState("");
   const nav = useNavigate();
-  const [showPinpad, setShowPinpad] = useState(false);
   const username = "lamslew";
 
   const handleDigit = (digit: string) => {
@@ -67,27 +66,24 @@ export const Login = () => {
               autoFocus={!!username}
               readOnly
               inputMode="none"
-              onFocus={() => setShowPinpad(true)}
               className={styles.input}
               placeholder="Pin"
               value={pin}
             />
           </div>
 
-          {showPinpad && (
-            <>
-              <button
-                type="button"
-                className={styles.faceIdButton}
-                aria-label="Use Face ID"
-              >
-                <TbFaceId aria-hidden="true" />
-              </button>
-              <div className={`${styles.padWrapper} ${styles.padVisible}`}>
-                <PinPad onDigit={handleDigit} onDelete={handleDelete} />
-              </div>
-            </>
-          )}
+          <>
+            <button
+              type="button"
+              className={styles.faceIdButton}
+              aria-label="Use Face ID"
+            >
+              <TbFaceId aria-hidden="true" />
+            </button>
+            <div className={`${styles.padWrapper} ${styles.padVisible}`}>
+              <PinPad onDigit={handleDigit} onDelete={handleDelete} />
+            </div>
+          </>
         </div>
         <div className={styles.headerActions}>
           {canInstall && (
