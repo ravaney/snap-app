@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
-import styles from "./LoginPage.module.css";
+import styles from "../LoginPage.module.css";
 import { useState } from "react";
 import { MuiTelInput } from "mui-tel-input";
 import Typography from "@mui/material/Typography";
