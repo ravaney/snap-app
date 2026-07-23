@@ -10,6 +10,7 @@ import { SignUpEmailSchema, type SignupEmailForm } from "./formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputFieldError } from "../../../../components/common/InputFieldError";
 import { ShowPasswordCheck } from "./const";
+import { useSignup } from "../../../../hooks/useSignup";
 
 const fieldSx = {
   "& .MuiOutlinedInput-root": {
@@ -36,6 +37,7 @@ const fieldSx = {
 };
 
 export const EmailSignup = () => {
+  const { mutate, error } = useSignup();
   const {
     control,
     handleSubmit,
@@ -56,7 +58,7 @@ export const EmailSignup = () => {
   });
 
   const onSubmit: SubmitHandler<SignupEmailForm> = (data) => {
-    console.log(data);
+    mutate(data);
   };
   const password = watch("password");
 
@@ -175,6 +177,7 @@ export const EmailSignup = () => {
       >
         Sign Up
       </Button>
+      {error?.message && <InputFieldError text={error?.message} />}
     </form>
   );
 };
